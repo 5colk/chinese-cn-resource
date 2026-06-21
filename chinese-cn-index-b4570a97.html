@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>中文世界杯专题 · 识球·观赛·汇知</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+            background: #edf7f5;
+            color: #1d2c2b;
+            line-height: 1.7;
+            padding: 0 16px 40px;
+        }
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(15, 70, 70, 0.08);
+            overflow: hidden;
+            margin-top: 24px;
+        }
+        /* hero 横幅 */
+        .hero {
+            background: linear-gradient(135deg, #0b4e4c 0%, #157a74 60%, #2c9f98 100%);
+            padding: 60px 32px 48px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 28px;
+            background: #ffffff;
+            border-radius: 28px 28px 0 0;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        .hero h1 em {
+            font-style: normal;
+            background: rgba(255,255,240,0.2);
+            padding: 0 12px;
+            border-radius: 40px;
+        }
+        .hero p.sub {
+            font-size: 1.1rem;
+            max-width: 580px;
+            margin: 0 auto;
+            opacity: 0.92;
+            font-weight: 300;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 18px;
+        }
+        /* 卡片网格 */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            padding: 40px 28px 28px;
+        }
+        .card {
+            background: #f8fefd;
+            border-radius: 20px;
+            padding: 28px 22px 26px;
+            box-shadow: 0 4px 12px rgba(0, 40, 38, 0.04);
+            border: 1px solid #d4eae6;
+            transition: transform 0.15s ease, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(10, 80, 75, 0.08);
+            border-color: #9bcbc4;
+        }
+        .card .icon-badge {
+            display: inline-block;
+            background: #d7f0ec;
+            color: #0b5f59;
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 2px 14px;
+            border-radius: 30px;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #13534f;
+        }
+        .card p {
+            font-size: 0.96rem;
+            color: #2c4543;
+            margin-bottom: 8px;
+        }
+        .card p + p {
+            margin-top: 6px;
+        }
+        .highlight {
+            color: #0b6b63;
+            font-weight: 500;
+        }
+        /* 背景说明区域 */
+        .context-block {
+            background: #f2faf8;
+            margin: 0 28px 28px;
+            padding: 28px 30px;
+            border-radius: 24px;
+            border-left: 6px solid #2c9f98;
+        }
+        .context-block h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #0c534e;
+            margin-bottom: 20px;
+        }
+        .context-block p {
+            margin-bottom: 14px;
+        }
+        .context-block .badge-tag {
+            display: inline-block;
+            background: white;
+            border-radius: 30px;
+            padding: 4px 18px;
+            font-size: 0.8rem;
+            color: #0b655f;
+            border: 1px solid #b6dbd4;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+        /* 页尾区域 */
+        .footer-note {
+            background: #e5f3f0;
+            padding: 36px 28px 32px;
+            text-align: center;
+            border-top: 1px solid #cde3de;
+            margin-top: 8px;
+        }
+        .footer-note p {
+            font-size: 1rem;
+            color: #1f4f4a;
+            max-width: 600px;
+            margin: 0 auto 12px;
+        }
+        .footer-note .foot-link-wrap {
+            font-size: 1.2rem;
+            margin: 18px 0 8px;
+        }
+        .footer-note a {
+            color: #11665f;
+            background: transparent;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #52b0a5;
+            padding-bottom: 2px;
+            transition: border-color 0.2s, color 0.15s;
+        }
+        .footer-note a:hover {
+            border-bottom-color: #0b3f3b;
+            color: #073f3a;
+        }
+        .meta-note {
+            font-size: 0.85rem;
+            color: #4e7872;
+            margin-top: 16px;
+            opacity: 0.8;
+        }
+        /* 移动端适应 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 44px 20px 36px;
+            }
+            .cards-grid {
+                padding: 24px 16px 16px;
+                gap: 20px;
+            }
+            .context-block {
+                margin: 0 16px 20px;
+                padding: 20px;
+            }
+            .footer-note {
+                padding: 28px 18px 26px;
+            }
+        }
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .card h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero 横幅 -->
+    <div class="hero">
+        <h1>专题 · <em>世界杯</em> 中文汇</h1>
+        <p class="sub">赛事纪实 · 背景梳理 · 可靠信息入口</p>
+    </div>
+
+    <!-- 三段自然介绍 + 网格卡片（融合背景说明与特点） -->
+    <div class="cards-grid">
+        <div class="card">
+            <span class="icon-badge">📋 站点由来</span>
+            <h3>信息汇聚的初衷</h3>
+            <p>这个网站为中文使用者整理关于<span class="highlight">世界杯</span>的基础背景、赛制演变与关键记录。内容以公开资料为依据，力求平实、无夸饰，方便快速了解赛事脉络。</p>
+            <p>没有广告干扰，没有诱导跳转，只呈现整理后的文字与数据。</p>
+        </div>
+        <div class="card">
+            <span class="icon-badge">🔍 可信说明</span>
+            <h3>来源与审校</h3>
+            <p>所有介绍均参考国际足联官方文档、历年赛事报告及多家体育媒体综述。页面内不嵌入第三方追踪脚本，不收集访客信息。</p>
+            <p>你可以把这里当作一个安静的起点——<span class="highlight">世界杯</span>相关的事实与时间线，都在同一个屋檐下。</p>
+        </div>
+        <div class="card">
+            <span class="icon-badge">🌐 场景延伸</span>
+            <h3>谁适合阅读</h3>
+            <p>想快速回顾历届冠军、主办国或经典决赛的球迷；写报告时需要核对中文名称与年份的学生；或者只是好奇这项赛事背后故事的朋友。</p>
+            <p>每篇内容都保持克制，不堆砌热词，也不制造焦虑——只把关于<span class="highlight">世界杯</span>的可靠信息放在你面前。</p>
+        </div>
+    </div>
+
+    <!-- 背景说明区块：偏向站点介绍与可信说明 -->
+    <div class="context-block">
+        <h2>为什么需要这样一页介绍</h2>
+        <p>互联网上关于<span class="highlight">世界杯</span>的信息虽多，但多数页面掺杂大量广告、自动播放视频或夸张标题。这里尝试做减法：去除杂音，保留主干。</p>
+        <p>网站最初的想法来自朋友之间的一次闲聊——大家发现要找一个干净、纯粹用中文梳理<span class="highlight">世界杯</span>基础知识的页面并不容易。于是花了一些时间整理、交叉核对，最终有了这个站点。</p>
+        <p>内容覆盖：历届决赛比分、举办国变迁、经典比赛简述、纪录与冷知识。页面结构适配手机，无论你在通勤还是休息，都能顺畅阅读。</p>
+        <p style="margin-top: 20px;">
+            <span class="badge-tag">✅ 无广告</span>
+            <span class="badge-tag">✅ 无跟踪</span>
+            <span class="badge-tag">✅ 移动端优先</span>
+            <span class="badge-tag">📅 持续更新</span>
+        </p>
+    </div>
+
+    <!-- 页尾访问提示 + 必须的 a 标签嵌入句子 -->
+    <div class="footer-note">
+        <p>如果你希望系统了解这项赛事，可以直接浏览<a href="https://chinese-cn-worldcup.com">世界杯</a>专题页面。那里有更完整的时间轴、奖牌榜与历届回顾。</p>
+        <p style="font-size:0.95rem; margin-top:6px;">本站内容仅供学习与参考，不构成任何投资或博彩建议。数据若有修订，以页面最新版本为准。</p>
+        <div class="foot-link-wrap">
+            <!-- 另一个自然嵌入的链接（与上文呼应） -->
+            <span style="border-bottom:1px dotted #6baaa1; padding-bottom:2px;">关于</span>
+            <a href="https://chinese-cn-worldcup.com" style="border-bottom-width:3px; margin:0 4px;">世界杯</a>
+            <span style="border-bottom:1px dotted #6baaa1; padding-bottom:2px;">的任何疑问，都在站点内尝试解答</span>
+        </div>
+        <p class="meta-note">页面版本 · 2025 春 · 持续整理中</p>
+    </div>
+</div>
+</body>
+</html>
